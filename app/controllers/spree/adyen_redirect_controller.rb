@@ -8,7 +8,8 @@ module Spree
       order = current_order
 
       unless authorized?
-        flash.notice = Spree.t(:payment_processing_failed)
+        flash.notice = "#{Spree.t(:payment_processing_failed)}\nPlease refer to order reference number #{order.number}-#{order.payment_count}"
+        order.increment_payment_count
         redirect_to checkout_state_path(order.state) and return
       end
 
