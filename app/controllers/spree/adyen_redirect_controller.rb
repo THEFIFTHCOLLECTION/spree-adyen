@@ -1,6 +1,6 @@
 module Spree
   class AdyenRedirectController < StoreController
-    before_filter :check_signature, :only => :confirm
+    before_action :check_signature, :only => :confirm
 
     skip_before_action :verify_authenticity_token
 

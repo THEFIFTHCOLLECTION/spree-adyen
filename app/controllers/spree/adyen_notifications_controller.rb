@@ -2,7 +2,7 @@ module Spree
   class AdyenNotificationsController < StoreController
     skip_before_action :verify_authenticity_token
 
-    before_filter :authenticate
+    before_action :authenticate
 
     def notify
       @notification = AdyenNotification.log(params)
