@@ -2,7 +2,7 @@ module Spree
   class AdyenRedirectController < StoreController
     before_filter :check_signature, :only => :confirm
 
-    skip_before_filter :verify_authenticity_token
+    skip_before_action :verify_authenticity_token
 
     def confirm
       order = current_order
